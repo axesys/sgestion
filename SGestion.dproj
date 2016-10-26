@@ -108,16 +108,8 @@
             <Form>frmCatalogo</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Catalogos\ufrmClientes.pas">
-            <Form>frmClientes</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Compartidos\ufrmEditor.pas">
             <Form>frmEditor</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="Catalogos\ufrmEditorClientes.pas">
-            <Form>frmEditorClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <None Include="README.md"/>

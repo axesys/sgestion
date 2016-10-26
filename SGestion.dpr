@@ -6,9 +6,7 @@ uses
   udmData in 'udmData.pas' {dmData: TDataModule},
   ufrmBase in 'Compartidos\ufrmBase.pas' {frmBase},
   ufrmCatalogo in 'Compartidos\ufrmCatalogo.pas' {frmCatalogo},
-  ufrmClientes in 'Catalogos\ufrmClientes.pas' {frmClientes},
-  ufrmEditor in 'Compartidos\ufrmEditor.pas' {frmEditor},
-  ufrmEditorClientes in 'Catalogos\ufrmEditorClientes.pas' {frmEditorClientes};
+  ufrmEditor in 'Compartidos\ufrmEditor.pas' {frmEditor};
 
 {$R *.res}
 
