@@ -15,12 +15,10 @@ type
     pcMain: TPageControl;
     tbMain: TToolBar;
     btnCatalogos: TToolButton;
-    btnProductos: TToolButton;
-    btnVendedores: TToolButton;
     mnuCatalogos: TPopupMenu;
-    mnuClientes: TMenuItem;
+    mnuFamilias: TMenuItem;
     imgMain: TImageList;
-    procedure actFamiliasExecute(Sender: TObject);
+    procedure actExecute(Sender: TObject);
   private
     { Private declarations }
     function CrearVentana(actAccion: TAction):  TForm;
@@ -60,7 +58,7 @@ begin
   end;
 end;
 
-procedure TfrmMain.actFamiliasExecute(Sender: TObject);
+procedure TfrmMain.actExecute(Sender: TObject);
 begin
   CrearVentana(Sender as TAction);
 end;

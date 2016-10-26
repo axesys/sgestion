@@ -3,32 +3,50 @@ unit SGestionTestCases;
 interface
 
 uses
-  TestFrameWork;
+  TestFrameWork, Vcl.Forms, SysUtils, udmData, ufrmMain, ufrmCatalogo;
 
 type
-  TTestCaseFirst = class(TTestCase)
+  TTestCaseFamilias = class(TTestCase)
+  const
+    CATALOGO = 'Familias';
+  private
+    frmCatalogo: TfrmCatalogo;
+  protected
+    procedure SetUp; override;
+    procedure TearDown; override;
   published
-    procedure TestFirst;
-  end;
-  TTestCaseSecond = class(TTestCase)
-  published
-    procedure TestSecond;
+    procedure TestMenu;
+    procedure TestEditorNuevo;
   end;
 
 implementation
 
-procedure TTestCaseFirst.TestFirst;
+procedure TTestCaseFamilias.SetUp;
 begin
-  Check(1 + 1 = 2, 'Catastrophic arithmetic failure!');
+  dmData:= TdmData.Create(Application);
+  frmMain:= TfrmMain.Create(Application);
+  frmMain.actFamilias.Execute;
+  frmCatalogo:= TfrmCatalogo(Application.FindComponent('frm' + CATALOGO));
 end;
 
-procedure TTestCaseSecond.TestSecond;
+procedure TTestCaseFamilias.TearDown;
 begin
-  Check(1 - 1 = 0, 'Catastrophic arithmetic failure!');
+  FreeAndNil(frmCatalogo);
+  FreeAndNil(frmMain);
+  FreeAndNil(dmData);
 end;
+
+procedure TTestCaseFamilias.TestMenu;
+begin
+  Check(Assigned(frmCatalogo), 'Catalogo ' + CATALOGO + ' no asignado')
+end;
+
+procedure TTestCaseFamilias.TestEditorNuevo;
+begin
+end;
+
 
 initialization
-  TestFramework.RegisterTest(TTestCaseFirst.Suite);
-  TestFramework.RegisterTest(TTestCaseSecond.Suite);
+  TestFramework.RegisterTest(TTestCaseFamilias.Suite);
 
 end.

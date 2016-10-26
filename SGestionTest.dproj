@@ -88,6 +88,24 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="SGestionTestCases.pas"/>
+        <DCCReference Include="udmData.pas">
+            <Form>dmData</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="ufrmMain.pas">
+            <Form>frmMain</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Catalogos\ufrmFamilias.pas"/>
+        <DCCReference Include="Compartidos\ufrmBase.pas">
+            <Form>frmBase</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Compartidos\ufrmCatalogo.pas">
+            <Form>frmCatalogo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

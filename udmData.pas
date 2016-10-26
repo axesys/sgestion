@@ -10,10 +10,6 @@ uses
 type
   TdmData = class(TDataModule)
     cntData: TZConnection;
-    dsCatalogo: TDataSource;
-    dspCatalogo: TDataSetProvider;
-    cdsCatalogo: TClientDataSet;
-    qryCatalogo: TZQuery;
     dsFamilias: TDataSource;
     dspFamilias: TDataSetProvider;
     cdsFamilias: TClientDataSet;

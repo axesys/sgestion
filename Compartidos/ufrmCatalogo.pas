@@ -20,9 +20,15 @@ type
     btnModificar: TToolButton;
     btnEliminar: TToolButton;
     imgImagenes: TImageList;
-    procedure actNuevoExecute(Sender: TObject);
-    procedure actModificarExecute(Sender: TObject);
-    procedure actEliminarExecute(Sender: TObject);
+    pgcCatalogo: TPageControl;
+    tsListado: TTabSheet;
+    tsEditor: TTabSheet;
+    actGuardar: TDataSetPost;
+    btnGuardar: TToolButton;
+    btnCancelar: TToolButton;
+    actCancelar: TDataSetCancel;
+    imgImagenesGris: TImageList;
+    procedure grdCatalogoDblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,78 +42,11 @@ implementation
 
 {$R *.dfm}
 
-uses udmData, ufrmEditor;
+uses udmData;
 
-procedure TfrmCatalogo.actEliminarExecute(Sender: TObject);
-var
-  DataSet: TDataSet;
-  sForma: String;
+procedure TfrmCatalogo.grdCatalogoDblClick(Sender: TObject);
 begin
-  inherited;
-  sForma:= StringReplace(Self.Name, 'frm', 'frmEditor', []);
-  with CrearForma(sForma) as TfrmEditor do
-  try
-    pcEditor.Enabled:= False;
-    if Assigned(actEliminar.DataSource) and
-       Assigned(actEliminar.DataSource.DataSet) then
-    begin
-      DataSet:= actEliminar.DataSource.DataSet;
-      if ShowModal = mrOk then
-        DataSet.Delete
-      else
-        DataSet.Cancel;
-    end;
-  finally
-    Free;
-  end;
-end;
-
-procedure TfrmCatalogo.actModificarExecute(Sender: TObject);
-var
-  DataSet: TDataSet;
-  sForma: String;
-begin
-  inherited;
-  sForma:= StringReplace(Self.Name, 'frm', 'frmEditor', []);
-  with CrearForma(sForma) do
-  try
-    if Assigned(actModificar.DataSource) and
-       Assigned(actModificar.DataSource.DataSet) then
-    begin
-      DataSet:= actModificar.DataSource.DataSet;
-      DataSet.Edit;
-      if ShowModal = mrOk then
-        DataSet.Post
-      else
-        DataSet.Cancel;
-    end;
-  finally
-    Free;
-  end;
-end;
-
-procedure TfrmCatalogo.actNuevoExecute(Sender: TObject);
-var
-  DataSet: TDataSet;
-  sForma: String;
-begin
-  inherited;
-  sForma:= StringReplace(Self.Name, 'frm', 'frmEditor', []);
-  with CrearForma(sForma) do
-  try
-    if Assigned(actNuevo.DataSource) and
-       Assigned(actNuevo.DataSource.DataSet) then
-    begin
-      DataSet:= actNuevo.DataSource.DataSet;
-      DataSet.Insert;
-      if ShowModal = mrOk then
-        DataSet.Post
-      else
-        DataSet.Cancel;
-    end;
-  finally
-    Free;
-  end;
+  pgcCatalogo.ActivePage:= tsEditor;
 end;
 
 end.

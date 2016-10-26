@@ -15,40 +15,14 @@ object dmData: TdmData
     Left = 24
     Top = 8
   end
-  object dsCatalogo: TDataSource
-    DataSet = cdsCatalogo
-    Left = 24
-    Top = 200
-  end
-  object dspCatalogo: TDataSetProvider
-    DataSet = qryCatalogo
-    Left = 24
-    Top = 104
-  end
-  object cdsCatalogo: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'dspCatalogo'
-    AfterPost = cdsAfterPost
-    AfterDelete = cdsAfterPost
-    OnNewRecord = cdsNewRecord
-    Left = 24
-    Top = 152
-  end
-  object qryCatalogo: TZQuery
-    Connection = cntData
-    Params = <>
-    Left = 24
-    Top = 56
-  end
   object dsFamilias: TDataSource
     DataSet = cdsFamilias
-    Left = 96
+    Left = 24
     Top = 200
   end
   object dspFamilias: TDataSetProvider
     DataSet = qryFamilias
-    Left = 96
+    Left = 24
     Top = 104
   end
   object cdsFamilias: TClientDataSet
@@ -58,7 +32,7 @@ object dmData: TdmData
     AfterPost = cdsAfterPost
     AfterDelete = cdsAfterPost
     OnNewRecord = cdsNewRecord
-    Left = 96
+    Left = 24
     Top = 152
   end
   object qryFamilias: TZQuery
@@ -66,7 +40,7 @@ object dmData: TdmData
     SQL.Strings = (
       'select * from familias')
     Params = <>
-    Left = 96
+    Left = 24
     Top = 56
   end
 end
