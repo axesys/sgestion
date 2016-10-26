@@ -50,18 +50,18 @@ object frmMain: TfrmMain
     Images = imgMain
     Left = 240
     Top = 208
-    object actClientes: TAction
-      Caption = 'Clientes'
+    object actFamilias: TAction
+      Caption = 'Familias'
       ImageIndex = 1
-      OnExecute = actClientesExecute
+      OnExecute = actFamiliasExecute
     end
   end
   object mnuCatalogos: TPopupMenu
     Images = imgMain
     Left = 240
-    Top = 272
+    Top = 264
     object mnuClientes: TMenuItem
-      Action = actClientes
+      Action = actFamilias
     end
   end
   object imgMain: TImageList
@@ -72,7 +72,7 @@ object frmMain: TfrmMain
     Left = 240
     Top = 152
     Bitmap = {
-      494C010102000800200020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010102000800240020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

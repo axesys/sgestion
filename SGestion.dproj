@@ -112,6 +112,14 @@
             <Form>frmEditor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Catalogos\ufrmFamilias.pas">
+            <Form>frmFamilias</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Catalogos\ufrmEditorFamilias.pas">
+            <Form>frmEditorFamilias</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="README.md"/>
         <None Include="BD\SGestion_FireBird.sql"/>
         <None Include="BD\SGestion_MySQL.sql"/>

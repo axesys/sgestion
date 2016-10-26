@@ -48,11 +48,15 @@ begin
   with CrearForma(sForma) as TfrmEditor do
   try
     pcEditor.Enabled:= False;
-    DataSet:= (Sender as TDataSetDelete).DataSource.DataSet;
-    if ShowModal = mrOk then
-      DataSet.Delete
-    else
-      DataSet.Cancel;
+    if Assigned(actEliminar.DataSource) and
+       Assigned(actEliminar.DataSource.DataSet) then
+    begin
+      DataSet:= actEliminar.DataSource.DataSet;
+      if ShowModal = mrOk then
+        DataSet.Delete
+      else
+        DataSet.Cancel;
+    end;
   finally
     Free;
   end;
@@ -67,12 +71,16 @@ begin
   sForma:= StringReplace(Self.Name, 'frm', 'frmEditor', []);
   with CrearForma(sForma) do
   try
-    DataSet:= (Sender as TDataSetEdit).DataSource.DataSet;
-    DataSet.Edit;
-    if ShowModal = mrOk then
-      DataSet.Post
-    else
-      DataSet.Cancel;
+    if Assigned(actModificar.DataSource) and
+       Assigned(actModificar.DataSource.DataSet) then
+    begin
+      DataSet:= actModificar.DataSource.DataSet;
+      DataSet.Edit;
+      if ShowModal = mrOk then
+        DataSet.Post
+      else
+        DataSet.Cancel;
+    end;
   finally
     Free;
   end;
@@ -87,12 +95,16 @@ begin
   sForma:= StringReplace(Self.Name, 'frm', 'frmEditor', []);
   with CrearForma(sForma) do
   try
-    DataSet:= (Sender as TDataSetInsert).DataSource.DataSet;
-    DataSet.Insert;
-    if ShowModal = mrOk then
-      DataSet.Post
-    else
-      DataSet.Cancel;
+    if Assigned(actNuevo.DataSource) and
+       Assigned(actNuevo.DataSource.DataSet) then
+    begin
+      DataSet:= actNuevo.DataSource.DataSet;
+      DataSet.Insert;
+      if ShowModal = mrOk then
+        DataSet.Post
+      else
+        DataSet.Cancel;
+    end;
   finally
     Free;
   end;

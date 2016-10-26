@@ -7,6 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
 
 type
+  TDataModuleClass = class of TDataModule;
   TfrmBase = class(TForm)
   private
     { Private declarations }

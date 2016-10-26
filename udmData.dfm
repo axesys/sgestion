@@ -15,32 +15,58 @@ object dmData: TdmData
     Left = 24
     Top = 8
   end
-  object qryClientes: TZQuery
+  object dsCatalogo: TDataSource
+    DataSet = cdsCatalogo
+    Left = 24
+    Top = 200
+  end
+  object dspCatalogo: TDataSetProvider
+    DataSet = qryCatalogo
+    Left = 24
+    Top = 104
+  end
+  object cdsCatalogo: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCatalogo'
+    AfterPost = cdsAfterPost
+    AfterDelete = cdsAfterPost
+    OnNewRecord = cdsNewRecord
+    Left = 24
+    Top = 152
+  end
+  object qryCatalogo: TZQuery
     Connection = cntData
-    SQL.Strings = (
-      'select * from clientes')
     Params = <>
     Left = 24
     Top = 56
   end
-  object cdsClientes: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'dspClientes'
-    AfterPost = cdsAfterPost
-    AfterDelete = cdsAfterPost
-    OnNewRecord = cdsClientesNewRecord
-    Left = 24
-    Top = 152
+  object dsFamilias: TDataSource
+    DataSet = cdsFamilias
+    Left = 96
+    Top = 200
   end
-  object dspClientes: TDataSetProvider
-    DataSet = qryClientes
-    Left = 24
+  object dspFamilias: TDataSetProvider
+    DataSet = qryFamilias
+    Left = 96
     Top = 104
   end
-  object dsClientes: TDataSource
-    DataSet = cdsClientes
-    Left = 24
-    Top = 200
+  object cdsFamilias: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspFamilias'
+    AfterPost = cdsAfterPost
+    AfterDelete = cdsAfterPost
+    OnNewRecord = cdsNewRecord
+    Left = 96
+    Top = 152
+  end
+  object qryFamilias: TZQuery
+    Connection = cntData
+    SQL.Strings = (
+      'select * from familias')
+    Params = <>
+    Left = 96
+    Top = 56
   end
 end

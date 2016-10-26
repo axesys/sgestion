@@ -12,6 +12,7 @@ inherited frmCatalogo: TfrmCatalogo
     Width = 529
     Height = 381
     Align = alClient
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -81,7 +82,7 @@ inherited frmCatalogo: TfrmCatalogo
     Left = 232
     Top = 144
     Bitmap = {
-      494C010103000800B00020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010103000800B40020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

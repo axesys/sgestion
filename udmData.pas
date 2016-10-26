@@ -10,18 +10,22 @@ uses
 type
   TdmData = class(TDataModule)
     cntData: TZConnection;
-    qryClientes: TZQuery;
-    cdsClientes: TClientDataSet;
-    dspClientes: TDataSetProvider;
-    dsClientes: TDataSource;
+    dsCatalogo: TDataSource;
+    dspCatalogo: TDataSetProvider;
+    cdsCatalogo: TClientDataSet;
+    qryCatalogo: TZQuery;
+    dsFamilias: TDataSource;
+    dspFamilias: TDataSetProvider;
+    cdsFamilias: TClientDataSet;
+    qryFamilias: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
+    procedure cdsNewRecord(DataSet: TDataSet);
     procedure cdsAfterPost(DataSet: TDataSet);
-    procedure cdsClientesNewRecord(DataSet: TDataSet);
   private
     { Private declarations }
+    function GetId: string;
   public
     { Public declarations }
-    function GetId: String;
   end;
 
 var
@@ -33,12 +37,12 @@ implementation
 
 {$R *.dfm}
 
-function TdmData.GetId: String;
+function TdmData.GetId: string;
 var
   Guid : TGuid;
 begin
   CreateGuid(Guid);
-  Exit(GuidToString(Guid))
+  Exit(GuidToString(Guid));
 end;
 
 procedure TdmData.cdsAfterPost(DataSet: TDataSet);
@@ -46,7 +50,7 @@ begin
   (DataSet as TClientDataSet).ApplyUpdates(0);
 end;
 
-procedure TdmData.cdsClientesNewRecord(DataSet: TDataSet);
+procedure TdmData.cdsNewRecord(DataSet: TDataSet);
 begin
   (DataSet as TClientDataSet).FieldByName(StringReplace(
     DataSet.Name, 'cds', 'ID_', [])).AsString:= GetID;
@@ -54,7 +58,7 @@ end;
 
 procedure TdmData.DataModuleCreate(Sender: TObject);
 begin
-  cdsClientes.Open;
+  cdsFamilias.Open;
 end;
 
 end.

@@ -11,7 +11,7 @@ uses
 type
   TfrmMain = class(TForm)
     actMain: TActionList;
-    actClientes: TAction;
+    actFamilias: TAction;
     pcMain: TPageControl;
     tbMain: TToolBar;
     btnCatalogos: TToolButton;
@@ -20,7 +20,7 @@ type
     mnuCatalogos: TPopupMenu;
     mnuClientes: TMenuItem;
     imgMain: TImageList;
-    procedure actClientesExecute(Sender: TObject);
+    procedure actFamiliasExecute(Sender: TObject);
   private
     { Private declarations }
     function CrearVentana(actAccion: TAction):  TForm;
@@ -60,7 +60,7 @@ begin
   end;
 end;
 
-procedure TfrmMain.actClientesExecute(Sender: TObject);
+procedure TfrmMain.actFamiliasExecute(Sender: TObject);
 begin
   CrearVentana(Sender as TAction);
 end;
