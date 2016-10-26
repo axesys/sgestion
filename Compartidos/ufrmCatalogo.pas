@@ -29,6 +29,7 @@ type
     actCancelar: TDataSetCancel;
     imgImagenesGris: TImageList;
     procedure grdCatalogoDblClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,6 +44,17 @@ implementation
 {$R *.dfm}
 
 uses udmData;
+
+procedure TfrmCatalogo.FormCreate(Sender: TObject);
+begin
+  if Assigned(grdCatalogo.DataSource) then
+  begin
+    actGuardar.DataSource:= grdCatalogo.DataSource;
+    actNuevo.DataSource:= grdCatalogo.DataSource;
+    actEliminar.DataSource:= grdCatalogo.DataSource;
+    actCancelar.DataSource:= grdCatalogo.DataSource;
+  end;
+end;
 
 procedure TfrmCatalogo.grdCatalogoDblClick(Sender: TObject);
 begin

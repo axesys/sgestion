@@ -16,7 +16,11 @@ type
     procedure TearDown; override;
   published
     procedure TestMenu;
-    procedure TestEditorNuevo;
+    procedure TestNuevo;
+    procedure TestModifica;
+    procedure TestBusca;
+    procedure TestCancela;
+    procedure TestElimina;
   end;
 
 implementation
@@ -41,10 +45,40 @@ begin
   Check(Assigned(frmCatalogo), 'Catalogo ' + CATALOGO + ' no asignado')
 end;
 
-procedure TTestCaseFamilias.TestEditorNuevo;
+procedure TTestCaseFamilias.TestNuevo;
 begin
+  dmData.cdsFamilias.Insert;
+  dmData.cdsFamilias.FieldByName('NOMBRE').Value:= 'Primero';
+  dmData.cdsFamilias.Post;
+  Check(dmData.cdsFamilias.Locate('NOMBRE', 'Primero', []), 'Registro no guardado');
 end;
 
+procedure TTestCaseFamilias.TestModifica;
+begin
+  dmData.cdsFamilias.Edit;
+  dmData.cdsFamilias.FieldByName('NOMBRE').Value:= 'Movido';
+  dmData.cdsFamilias.Post;
+  Check(dmData.cdsFamilias.Locate('NOMBRE', 'Movido', []), 'Registro no guardado');
+end;
+
+procedure TTestCaseFamilias.TestBusca;
+begin
+  Check(dmData.cdsFamilias.Locate('NOMBRE', 'Movido', []), 'Registro no encontrado');
+end;
+
+procedure TTestCaseFamilias.TestCancela;
+begin
+  dmData.cdsFamilias.Edit;
+  dmData.cdsFamilias.FieldByName('NOMBRE').Value:= 'Cambiado';
+  dmData.cdsFamilias.Cancel;
+  Check(dmData.cdsFamilias.Locate('NOMBRE', 'Movido', []), 'Registro no encontrado');
+end;
+
+procedure TTestCaseFamilias.TestElimina;
+begin
+  dmData.cdsFamilias.Delete;
+  Check(not dmData.cdsFamilias.Locate('NOMBRE', 'Movido', []), 'Registro no eliminado');
+end;
 
 initialization
   TestFramework.RegisterTest(TTestCaseFamilias.Suite);

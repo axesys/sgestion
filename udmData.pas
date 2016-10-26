@@ -17,6 +17,9 @@ type
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsNewRecord(DataSet: TDataSet);
     procedure cdsAfterPost(DataSet: TDataSet);
+//    procedure cdsReconcileError(DataSet: TCustomClientDataSet;
+//      E: EReconcileError; UpdateKind: TUpdateKind;
+//      var Action: TReconcileAction);
   private
     { Private declarations }
     function GetId: string;
@@ -52,9 +55,34 @@ begin
     DataSet.Name, 'cds', 'ID_', [])).AsString:= GetID;
 end;
 
+//procedure TdmData.cdsReconcileError(DataSet: TCustomClientDataSet;
+//      E: EReconcileError; UpdateKind: TUpdateKind;
+//      var Action: TReconcileAction);
+//begin
+//  inherited;
+//  Application.MessageBox(PChar(E.Message),'Error',MB_OK + MB_ICONERROR);
+//end;
+
 procedure TdmData.DataModuleCreate(Sender: TObject);
+var
+  DataSet: TDataSet;
+  i: Integer;
 begin
-  cdsFamilias.Open;
+  for i:= 0 to Pred(ComponentCount) do
+  begin
+    if Components[i] is TClientDataset then
+    begin
+      DataSet:= (Components[i] as TClientDataSet);
+      if not Assigned(DataSet.DataSetField) then
+      begin
+        DataSet.OnNewRecord:= cdsNewRecord;
+        DataSet.AfterPost:= cdsAfterPost;
+        DataSet.AfterDelete:= cdsAfterPost;
+//        DataSet.OnReconcileError:= cdsReconcileError;
+        DataSet.Open;
+      end;
+    end;
+  end;
 end;
 
 end.

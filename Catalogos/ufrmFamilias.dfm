@@ -16,10 +16,6 @@ inherited frmFamilias: TfrmFamilias
       end
     end
     inherited tsEditor: TTabSheet
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object lblNombre: TLabel
         Left = 3
         Top = 6
@@ -39,20 +35,9 @@ inherited frmFamilias: TfrmFamilias
       end
     end
   end
-  inherited actCatalogo: TActionList
-    inherited actNuevo: TDataSetInsert
-      DataSource = dmData.dsFamilias
-    end
-    inherited actModificar: TDataSetEdit
-      DataSource = dmData.dsFamilias
-    end
-    inherited actEliminar: TDataSetDelete
-      DataSource = dmData.dsFamilias
-    end
-  end
   inherited imgImagenes: TImageList
     Bitmap = {
-      494C010105000800E80020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800EC0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000060606074343
@@ -1117,7 +1102,7 @@ inherited frmFamilias: TfrmFamilias
   end
   inherited imgImagenesGris: TImageList
     Bitmap = {
-      494C010105000800040120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800080120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000001010101020202037C7C7C889090

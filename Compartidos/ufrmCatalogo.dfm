@@ -2,6 +2,7 @@ inherited frmCatalogo: TfrmCatalogo
   Caption = 'frmCatalogo'
   ClientHeight = 430
   ClientWidth = 529
+  OnCreate = FormCreate
   ExplicitWidth = 545
   ExplicitHeight = 468
   PixelsPerInch = 96
@@ -17,15 +18,15 @@ inherited frmCatalogo: TfrmCatalogo
     DisabledImages = imgImagenesGris
     Images = imgImagenes
     TabOrder = 0
-    object btnGuardar: TToolButton
+    object brnNuevo: TToolButton
       Left = 0
       Top = 0
-      Action = actGuardar
+      Action = actNuevo
     end
-    object brnNuevo: TToolButton
+    object btnGuardar: TToolButton
       Left = 54
       Top = 0
-      Action = actNuevo
+      Action = actGuardar
     end
     object btnModificar: TToolButton
       Left = 108
@@ -119,7 +120,7 @@ inherited frmCatalogo: TfrmCatalogo
     Left = 232
     Top = 144
     Bitmap = {
-      494C010105000800E40020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800E80020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000060606074343
@@ -1190,7 +1191,7 @@ inherited frmCatalogo: TfrmCatalogo
     Left = 232
     Top = 192
     Bitmap = {
-      494C010105000800000120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800040120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000001010101020202037C7C7C889090
