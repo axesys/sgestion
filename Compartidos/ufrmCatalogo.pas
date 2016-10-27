@@ -46,7 +46,11 @@ implementation
 uses udmData;
 
 procedure TfrmCatalogo.FormCreate(Sender: TObject);
+var
+  sData: string;
 begin
+  sData:= StringReplace(Name, 'frm', 'ds', []);
+  grdCatalogo.DataSource:= dmData.FindComponent(sData) as TDataSource;
   if Assigned(grdCatalogo.DataSource) then
   begin
     actGuardar.DataSource:= grdCatalogo.DataSource;

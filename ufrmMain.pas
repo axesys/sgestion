@@ -18,6 +18,8 @@ type
     mnuCatalogos: TPopupMenu;
     mnuFamilias: TMenuItem;
     imgMain: TImageList;
+    actBancos: TAction;
+    mnuBancos: TMenuItem;
     procedure actExecute(Sender: TObject);
   private
     { Private declarations }

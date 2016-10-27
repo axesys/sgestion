@@ -87,7 +87,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="SGestionTestCases.pas"/>
+        <DCCReference Include="Test\uTestCasesFamilias.pas"/>
         <DCCReference Include="udmData.pas">
             <Form>dmData</Form>
             <FormType>dfm</FormType>
@@ -104,6 +104,11 @@
         </DCCReference>
         <DCCReference Include="Compartidos\ufrmCatalogo.pas">
             <Form>frmCatalogo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Test\uTestCasesBancos.pas"/>
+        <DCCReference Include="Catalogos\ufrmBancos.pas">
+            <Form>frmBancos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

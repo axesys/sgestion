@@ -29,9 +29,6 @@ object dmData: TdmData
     Aggregates = <>
     Params = <>
     ProviderName = 'dspFamilias'
-    AfterPost = cdsAfterPost
-    AfterDelete = cdsAfterPost
-    OnNewRecord = cdsNewRecord
     Left = 24
     Top = 152
   end
@@ -41,6 +38,31 @@ object dmData: TdmData
       'select * from familias')
     Params = <>
     Left = 24
+    Top = 56
+  end
+  object dsBancos: TDataSource
+    DataSet = cdsBancos
+    Left = 88
+    Top = 200
+  end
+  object dspBancos: TDataSetProvider
+    DataSet = qryBancos
+    Left = 88
+    Top = 104
+  end
+  object cdsBancos: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspBancos'
+    Left = 88
+    Top = 152
+  end
+  object qryBancos: TZQuery
+    Connection = cntData
+    SQL.Strings = (
+      'select * from bancos')
+    Params = <>
+    Left = 88
     Top = 56
   end
 end

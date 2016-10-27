@@ -14,12 +14,13 @@ type
     dspFamilias: TDataSetProvider;
     cdsFamilias: TClientDataSet;
     qryFamilias: TZQuery;
+    dsBancos: TDataSource;
+    dspBancos: TDataSetProvider;
+    cdsBancos: TClientDataSet;
+    qryBancos: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsNewRecord(DataSet: TDataSet);
     procedure cdsAfterPost(DataSet: TDataSet);
-//    procedure cdsReconcileError(DataSet: TCustomClientDataSet;
-//      E: EReconcileError; UpdateKind: TUpdateKind;
-//      var Action: TReconcileAction);
   private
     { Private declarations }
     function GetId: string;
@@ -35,6 +36,9 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+uses
+  Dialogs;
 
 function TdmData.GetId: string;
 var
@@ -55,14 +59,6 @@ begin
     DataSet.Name, 'cds', 'ID_', [])).AsString:= GetID;
 end;
 
-//procedure TdmData.cdsReconcileError(DataSet: TCustomClientDataSet;
-//      E: EReconcileError; UpdateKind: TUpdateKind;
-//      var Action: TReconcileAction);
-//begin
-//  inherited;
-//  Application.MessageBox(PChar(E.Message),'Error',MB_OK + MB_ICONERROR);
-//end;
-
 procedure TdmData.DataModuleCreate(Sender: TObject);
 var
   DataSet: TDataSet;
@@ -78,7 +74,6 @@ begin
         DataSet.OnNewRecord:= cdsNewRecord;
         DataSet.AfterPost:= cdsAfterPost;
         DataSet.AfterDelete:= cdsAfterPost;
-//        DataSet.OnReconcileError:= cdsReconcileError;
         DataSet.Open;
       end;
     end;
