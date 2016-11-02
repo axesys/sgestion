@@ -21,6 +21,7 @@ type
     actBancos: TAction;
     mnuBancos: TMenuItem;
     procedure actExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     function CrearVentana(actAccion: TAction):  TForm;
@@ -56,6 +57,23 @@ begin
       Result.Show;
       pcMain.ActivePageIndex:= Pred(pcMain.PageCount);
       Result.Parent:= pcMain.ActivePage;
+    end;
+  end;
+end;
+
+procedure TfrmMain.FormCreate(Sender: TObject);
+var
+  i: Integer;
+begin
+  for i:= 0 to Pred(ComponentCount) do
+  begin
+    if Components[i] is TAction then
+    begin
+      Action:= (Components[i] as TAction);
+      if not Assigned(Action.OnExecute) then
+      begin
+        Action.OnExecute:= actExecute;
+      end;
     end;
   end;
 end;

@@ -12,6 +12,7 @@ object frmMain: TfrmMain
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pcMain: TPageControl
@@ -45,11 +46,9 @@ object frmMain: TfrmMain
     object actFamilias: TAction
       Caption = 'Familias'
       ImageIndex = 1
-      OnExecute = actExecute
     end
     object actBancos: TAction
       Caption = 'Bancos'
-      OnExecute = actExecute
     end
   end
   object mnuCatalogos: TPopupMenu
@@ -71,7 +70,7 @@ object frmMain: TfrmMain
     Left = 240
     Top = 152
     Bitmap = {
-      494C0101020008004C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010102000800500020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

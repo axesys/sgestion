@@ -38,7 +38,7 @@ implementation
 {$R *.dfm}
 
 uses
-  Dialogs;
+  Vcl.Dialogs;
 
 function TdmData.GetId: string;
 var
