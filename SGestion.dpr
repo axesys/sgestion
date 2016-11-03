@@ -1,13 +1,15 @@
 program SGestion;
 
 uses
-  Vcl.Forms, MidasLib,
+  Vcl.Forms,
+  MidasLib,
   ufrmMain in 'ufrmMain.pas' {frmMain},
   udmData in 'udmData.pas' {dmData: TDataModule},
   ufrmBase in 'Compartidos\ufrmBase.pas' {frmBase},
   ufrmCatalogo in 'Compartidos\ufrmCatalogo.pas' {frmCatalogo},
   ufrmFamilias in 'Catalogos\ufrmFamilias.pas' {frmFamilias},
-  ufrmBancos in 'Catalogos\ufrmBancos.pas' {frmBancos};
+  ufrmBancos in 'Catalogos\ufrmBancos.pas' {frmBancos},
+  ufrmPresupuestos in 'Catalogos\ufrmPresupuestos.pas' {frmPresupuestos};
 
 {$R *.res}
 

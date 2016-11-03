@@ -38,6 +38,13 @@ object frmMain: TfrmMain
       DropdownMenu = mnuCatalogos
       ImageIndex = 0
     end
+    object btnOperaciones: TToolButton
+      Left = 54
+      Top = 0
+      Caption = 'btnOperaciones'
+      DropdownMenu = mnuOperaciones
+      ImageIndex = 0
+    end
   end
   object actMain: TActionList
     Images = imgMain
@@ -49,6 +56,10 @@ object frmMain: TfrmMain
     end
     object actBancos: TAction
       Caption = 'Bancos'
+    end
+    object actPresupuestos: TAction
+      Caption = 'Presupuestos'
+      ImageIndex = 0
     end
   end
   object mnuCatalogos: TPopupMenu
@@ -70,7 +81,7 @@ object frmMain: TfrmMain
     Left = 240
     Top = 152
     Bitmap = {
-      494C0101020008005C0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010102000800600020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -604,5 +615,12 @@ object frmMain: TfrmMain
       80018001FFE007FF000000000000000080018001FFFC3FFF0000000000000000
       FFFFFFFFFFFFFFFF000000000000000000000000000000000000000000000000
       000000000000}
+  end
+  object mnuOperaciones: TPopupMenu
+    Left = 240
+    Top = 320
+    object mnuPresupuestos: TMenuItem
+      Action = actPresupuestos
+    end
   end
 end

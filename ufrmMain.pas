@@ -20,6 +20,10 @@ type
     imgMain: TImageList;
     actBancos: TAction;
     mnuBancos: TMenuItem;
+    actPresupuestos: TAction;
+    btnOperaciones: TToolButton;
+    mnuOperaciones: TPopupMenu;
+    mnuPresupuestos: TMenuItem;
     procedure actExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private

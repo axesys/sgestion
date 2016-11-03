@@ -1,126 +1,59 @@
-inherited frmCatalogo: TfrmCatalogo
-  Caption = 'frmCatalogo'
-  ClientHeight = 430
-  ClientWidth = 529
-  OnCreate = FormCreate
-  ExplicitWidth = 545
-  ExplicitHeight = 468
+inherited frmPresupuestos: TfrmPresupuestos
+  Caption = 'frmPresupuestos'
   PixelsPerInch = 96
   TextHeight = 13
-  object tbCatalogo: TToolBar
-    Left = 0
-    Top = 0
-    Width = 529
-    Height = 49
-    ButtonHeight = 47
-    ButtonWidth = 54
-    Caption = 'tbCatalogo'
-    DisabledImages = imgImagenesGris
-    Images = imgImagenes
-    TabOrder = 0
-    object brnNuevo: TToolButton
-      Left = 0
-      Top = 0
-      Action = actNuevo
+  inherited pgcCatalogo: TPageControl
+    inherited tsListado: TTabSheet
+      inherited grdCatalogo: TDBGrid
+        DataSource = dmData.dsPresupuestos
+      end
     end
-    object btnGuardar: TToolButton
-      Left = 54
-      Top = 0
-      Action = actGuardar
-    end
-    object btnModificar: TToolButton
-      Left = 108
-      Top = 0
-      Action = actModificar
-    end
-    object btnEliminar: TToolButton
-      Left = 162
-      Top = 0
-      Action = actEliminar
-      ParentShowHint = False
-      ShowHint = False
-    end
-    object btnCancelar: TToolButton
-      Left = 216
-      Top = 0
-      Action = actCancelar
-    end
-  end
-  object pgcCatalogo: TPageControl
-    Left = 0
-    Top = 49
-    Width = 529
-    Height = 381
-    ActivePage = tsListado
-    Align = alClient
-    TabOrder = 1
-    object tsListado: TTabSheet
-      Caption = 'Listado'
-      object grdCatalogo: TDBGrid
+    inherited tsEditor: TTabSheet
+      object Label1: TLabel
+        Left = 3
+        Top = 3
+        Width = 37
+        Height = 13
+        Caption = 'Nombre'
+      end
+      object dbgDatos: TDBGrid
         Left = 0
-        Top = 0
+        Top = 58
         Width = 521
-        Height = 353
-        Align = alClient
-        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgTitleClick, dgTitleHotTrack]
+        Height = 297
+        DataSource = dmData.dsPresupuestos_Datos
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgTitleClick, dgTitleHotTrack]
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
-        OnDblClick = grdCatalogoDblClick
+      end
+      object DBEdit1: TDBEdit
+        Left = 46
+        Top = 0
+        Width = 472
+        Height = 21
+        Anchors = [akLeft, akTop, akRight]
+        DataField = 'NOMBRE'
+        DataSource = dmData.dsPresupuestos
+        TabOrder = 1
+      end
+      object DBNavigator1: TDBNavigator
+        Left = 0
+        Top = 27
+        Width = 125
+        Height = 25
+        DataSource = dmData.dsPresupuestos_Datos
+        VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+        TabOrder = 2
       end
     end
-    object tsEditor: TTabSheet
-      Caption = 'Datos Generales'
-      ImageIndex = 1
-    end
   end
-  object actCatalogo: TActionList
-    Images = imgImagenes
-    Left = 232
-    Top = 240
-    object actGuardar: TDataSetPost
-      Category = 'Dataset'
-      Caption = 'Guardar'
-      Hint = 'Post'
-      ImageIndex = 3
-    end
-    object actNuevo: TDataSetInsert
-      Category = 'Dataset'
-      Caption = 'Nuevo'
-      Hint = 'Nuevo'
-      ImageIndex = 0
-    end
-    object actModificar: TDataSetEdit
-      Category = 'Dataset'
-      Caption = 'Modificar'
-      Hint = 'Modificar'
-      ImageIndex = 1
-    end
-    object actEliminar: TDataSetDelete
-      Category = 'Dataset'
-      Caption = 'Eliminar'
-      Hint = 'Eliminar'
-      ImageIndex = 2
-    end
-    object actCancelar: TDataSetCancel
-      Category = 'Dataset'
-      Caption = 'Cancelar'
-      Hint = 'Cancel'
-      ImageIndex = 4
-    end
-  end
-  object imgImagenes: TImageList
-    ColorDepth = cd32Bit
-    DrawingStyle = dsTransparent
-    Height = 32
-    Width = 32
-    Left = 232
-    Top = 144
+  inherited imgImagenes: TImageList
     Bitmap = {
-      494C010105000800F40020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800FC0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000060606074343
@@ -1183,15 +1116,9 @@ inherited frmCatalogo: TfrmCatalogo
       FFC003FFFFFFFFFFFFFFFFFF00FF833F00000000000000000000000000000000
       000000000000}
   end
-  object imgImagenesGris: TImageList
-    ColorDepth = cd32Bit
-    DrawingStyle = dsTransparent
-    Height = 32
-    Width = 32
-    Left = 232
-    Top = 192
+  inherited imgImagenesGris: TImageList
     Bitmap = {
-      494C010105000800100120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800180120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000001010101020202037C7C7C889090
