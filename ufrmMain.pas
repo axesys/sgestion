@@ -64,15 +64,16 @@ end;
 procedure TfrmMain.FormCreate(Sender: TObject);
 var
   i: Integer;
+  actAction: TAction;
 begin
   for i:= 0 to Pred(ComponentCount) do
   begin
     if Components[i] is TAction then
     begin
-      Action:= (Components[i] as TAction);
-      if not Assigned(Action.OnExecute) then
+      actAction:= (Components[i] as TAction);
+      if not Assigned(actAction.OnExecute) then
       begin
-        Action.OnExecute:= actExecute;
+        actAction.OnExecute:= actExecute;
       end;
     end;
   end;

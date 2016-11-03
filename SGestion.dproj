@@ -93,28 +93,22 @@
         </DelphiCompile>
         <DCCReference Include="ufrmMain.pas">
             <Form>frmMain</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="udmData.pas">
             <Form>dmData</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="Compartidos\ufrmBase.pas">
             <Form>frmBase</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Compartidos\ufrmCatalogo.pas">
             <Form>frmCatalogo</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Catalogos\ufrmFamilias.pas">
             <Form>frmFamilias</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Catalogos\ufrmBancos.pas">
             <Form>frmBancos</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <None Include="README.md"/>
         <None Include="BD\SGestion_FireBird.sql"/>

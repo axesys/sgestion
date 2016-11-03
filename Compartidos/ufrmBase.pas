@@ -27,6 +27,7 @@ function TfrmBase.CrearForma(sForma: String): TForm;
 var
   FormClass: TFormClass;
 begin
+  Result:= nil;
   FormClass:= TFormClass(GetClass('T' + (sForma)));
   if Assigned(FormClass) then
   begin
