@@ -1,4 +1,4 @@
-unit ufrmPresupuestos;
+unit ufrmProductos;
 
 interface
 
@@ -6,16 +6,12 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmCatalogo, Data.DB, System.ImageList,
   Vcl.ImgList, Vcl.DBActns, System.Actions, Vcl.ActnList, Vcl.Grids,
-  Vcl.DBGrids, Vcl.ComCtrls, Vcl.ToolWin, Vcl.ExtCtrls, Vcl.DBCtrls,
-  Vcl.StdCtrls, Vcl.Mask;
+  Vcl.DBGrids, Vcl.ComCtrls, Vcl.ToolWin, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
 
 type
-  TfrmPresupuestos = class(TfrmCatalogo)
+  TfrmProductos = class(TfrmCatalogo)
     edtNombre: TDBEdit;
     lblNombre: TLabel;
-    navDatos: TDBNavigator;
-    dbgdatos: TDBGrid;
-    btnInforme: TToolButton;
   private
     { Private declarations }
   public
@@ -23,7 +19,7 @@ type
   end;
 
 var
-  frmPresupuestos: TfrmPresupuestos;
+  frmProductos: TfrmProductos;
 
 implementation
 
@@ -33,6 +29,6 @@ uses
 {$R *.dfm}
 
 initialization
-  RegisterClass(TfrmPresupuestos);
+  RegisterClass(TfrmProductos);
 
 end.

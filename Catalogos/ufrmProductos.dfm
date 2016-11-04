@@ -1,23 +1,15 @@
-inherited frmPresupuestos: TfrmPresupuestos
-  Caption = 'Presupuestos'
+inherited frmProductos: TfrmProductos
+  Caption = 'Productos'
   PixelsPerInch = 96
   TextHeight = 13
-  inherited tbCatalogo: TToolBar
-    object btnInforme: TToolButton
-      Left = 270
-      Top = 0
-      Action = actInforme
-    end
-  end
   inherited pgcCatalogo: TPageControl
-    ActivePage = tsEditor
     inherited tsListado: TTabSheet
       ExplicitLeft = 4
       ExplicitTop = 24
       ExplicitWidth = 521
       ExplicitHeight = 353
       inherited grdCatalogo: TDBGrid
-        DataSource = dmData.dsPresupuestos
+        DataSource = dmData.dsProductos
       end
     end
     inherited tsEditor: TTabSheet
@@ -39,58 +31,14 @@ inherited frmPresupuestos: TfrmPresupuestos
         Height = 21
         Anchors = [akLeft, akTop, akRight]
         DataField = 'NOMBRE'
-        DataSource = dmData.dsPresupuestos
+        DataSource = dmData.dsProductos
         TabOrder = 0
-      end
-      object navDatos: TDBNavigator
-        Left = 3
-        Top = 22
-        Width = 225
-        Height = 25
-        DataSource = dmData.dsPresupuestos_Datos
-        VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
-        TabOrder = 1
-      end
-      object dbgdatos: TDBGrid
-        Left = 3
-        Top = 53
-        Width = 515
-        Height = 297
-        Anchors = [akLeft, akTop, akRight, akBottom]
-        DataSource = dmData.dsPresupuestos_Datos
-        TabOrder = 2
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'PRODUCTOS'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'PRECIO'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CANTIDAD'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SUBTOTAL'
-            Visible = True
-          end>
       end
     end
   end
   inherited imgImagenes: TImageList
     Bitmap = {
-      494C010105000800200120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800FC0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000060606074343
@@ -1155,7 +1103,7 @@ inherited frmPresupuestos: TfrmPresupuestos
   end
   inherited imgImagenesGris: TImageList
     Bitmap = {
-      494C0101050008003C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800180120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000001010101020202037C7C7C889090

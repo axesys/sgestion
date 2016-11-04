@@ -28,8 +28,10 @@ type
     btnCancelar: TToolButton;
     actCancelar: TDataSetCancel;
     imgImagenesGris: TImageList;
+    actInforme: TAction;
     procedure grdCatalogoDblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure actInformeExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,10 +47,16 @@ implementation
 
 uses udmData;
 
+procedure TfrmCatalogo.actInformeExecute(Sender: TObject);
+begin
+  dmData.MostrarReporte(StringReplace(Name, 'frm', '', []));
+end;
+
 procedure TfrmCatalogo.FormCreate(Sender: TObject);
 var
   sData: string;
 begin
+  pgcCatalogo.ActivePage:= tsListado;
   sData:= StringReplace(Name, 'frm', 'ds', []);
   grdCatalogo.DataSource:= dmData.FindComponent(sData) as TDataSource;
   if Assigned(grdCatalogo.DataSource) then

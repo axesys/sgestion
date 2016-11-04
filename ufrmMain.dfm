@@ -61,6 +61,9 @@ object frmMain: TfrmMain
       Caption = 'Presupuestos'
       ImageIndex = 0
     end
+    object actProductos: TAction
+      Caption = 'Productos'
+    end
   end
   object mnuCatalogos: TPopupMenu
     Images = imgMain
@@ -72,6 +75,9 @@ object frmMain: TfrmMain
     object mnuBancos: TMenuItem
       Action = actBancos
     end
+    object mnuProductos: TMenuItem
+      Action = actProductos
+    end
   end
   object imgMain: TImageList
     ColorDepth = cd32Bit
@@ -81,7 +87,7 @@ object frmMain: TfrmMain
     Left = 240
     Top = 152
     Bitmap = {
-      494C010102000800600020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010102000800640020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

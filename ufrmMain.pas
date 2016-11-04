@@ -24,6 +24,8 @@ type
     btnOperaciones: TToolButton;
     mnuOperaciones: TPopupMenu;
     mnuPresupuestos: TMenuItem;
+    actProductos: TAction;
+    mnuProductos: TMenuItem;
     procedure actExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private

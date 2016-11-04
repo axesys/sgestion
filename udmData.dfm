@@ -68,23 +68,24 @@ object dmData: TdmData
   end
   object dsPresupuestos: TDataSource
     DataSet = cdsPresupuestos
-    Left = 160
+    Left = 232
     Top = 200
   end
   object dspPresupuestos: TDataSetProvider
     DataSet = qryPresupuestos
     ResolveToDataSet = True
     Options = [poFetchDetailsOnDemand, poIncFieldProps, poCascadeDeletes, poCascadeUpdates, poPropogateChanges, poUseQuoteChar]
-    Left = 160
+    Left = 232
     Top = 104
   end
   object cdsPresupuestos: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dspPresupuestos'
-    Left = 160
+    Left = 232
     Top = 152
     object cdsPresupuestosID_PRESUPUESTOS: TWideStringField
+      DisplayWidth = 38
       FieldName = 'ID_PRESUPUESTOS'
       Required = True
       Size = 38
@@ -93,46 +94,57 @@ object dmData: TdmData
       FieldName = 'FECHA'
     end
     object cdsPresupuestosID_CLIENTES: TWideStringField
+      DisplayWidth = 38
       FieldName = 'ID_CLIENTES'
       Size = 38
     end
     object cdsPresupuestosNOMBRE: TWideStringField
+      DisplayWidth = 50
       FieldName = 'NOMBRE'
       Size = 50
     end
     object cdsPresupuestosDIRECCION: TWideStringField
+      DisplayWidth = 100
       FieldName = 'DIRECCION'
       Size = 100
     end
     object cdsPresupuestosCODIGO_POSTAL: TWideStringField
+      DisplayWidth = 10
       FieldName = 'CODIGO_POSTAL'
       Size = 10
     end
     object cdsPresupuestosCIUDAD: TWideStringField
+      DisplayWidth = 100
       FieldName = 'CIUDAD'
       Size = 100
     end
     object cdsPresupuestosPROVINCIA: TWideStringField
+      DisplayWidth = 60
       FieldName = 'PROVINCIA'
       Size = 60
     end
     object cdsPresupuestosNIF: TWideStringField
+      DisplayWidth = 18
       FieldName = 'NIF'
       Size = 18
     end
     object cdsPresupuestosCONRE: TFloatField
+      DefaultExpression = '0'
       FieldName = 'CONRE'
       Required = True
     end
     object cdsPresupuestosCONIRPF: TFloatField
+      DefaultExpression = '0'
       FieldName = 'CONIRPF'
       Required = True
     end
     object cdsPresupuestosSINIVA: TFloatField
+      DefaultExpression = '0'
       FieldName = 'SINIVA'
       Required = True
     end
     object cdsPresupuestosPAGADO: TFloatField
+      DefaultExpression = '0'
       FieldName = 'PAGADO'
       Required = True
     end
@@ -170,10 +182,12 @@ object dmData: TdmData
       FieldName = 'RE3'
     end
     object cdsPresupuestosID_FORMAS_PAGO: TWideStringField
+      DisplayWidth = 38
       FieldName = 'ID_FORMAS_PAGO'
       Size = 38
     end
     object cdsPresupuestosNUMERO_CUENTA: TWideStringField
+      DisplayWidth = 50
       FieldName = 'NUMERO_CUENTA'
       Size = 50
     end
@@ -185,6 +199,7 @@ object dmData: TdmData
       BlobType = ftWideMemo
     end
     object cdsPresupuestosTRASPASADO: TFloatField
+      DefaultExpression = '0'
       FieldName = 'TRASPASADO'
       Required = True
     end
@@ -192,6 +207,7 @@ object dmData: TdmData
       FieldName = 'TARIFA'
     end
     object cdsPresupuestosID_COMERCIALES: TWideStringField
+      DisplayWidth = 38
       FieldName = 'ID_COMERCIALES'
       Size = 38
     end
@@ -199,6 +215,7 @@ object dmData: TdmData
       FieldName = 'COMISION'
     end
     object cdsPresupuestosBIC: TWideStringField
+      DisplayWidth = 11
       FieldName = 'BIC'
       Size = 11
     end
@@ -230,6 +247,7 @@ object dmData: TdmData
       FieldName = 'TOTAL_PENDIENTE'
     end
     object cdsPresupuestosID_USUARIO: TWideStringField
+      DisplayWidth = 38
       FieldName = 'ID_USUARIO'
       Size = 38
     end
@@ -237,30 +255,85 @@ object dmData: TdmData
       FieldName = 'qryPresupuestos_Datos'
     end
   end
-  object dsPresupuestosDatos: TDataSource
-    DataSet = qryPresupuestos
-    Left = 264
-    Top = 56
-  end
-  object cdsPresupuestos_Datos: TClientDataSet
-    Aggregates = <>
-    DataSetField = cdsPresupuestosqryPresupuestos_Datos
-    Params = <>
-    Left = 264
-    Top = 152
-  end
-  object dsPresupuestos_Datos: TDataSource
-    DataSet = cdsPresupuestos_Datos
-    Left = 264
-    Top = 200
-  end
   object qryPresupuestos: TZQuery
     Connection = cntData
     SQL.Strings = (
       'select * from presupuestos')
     Params = <>
-    Left = 160
+    Left = 232
     Top = 56
+  end
+  object dsPresupuestos_Datos: TDataSource
+    DataSet = cdsPresupuestos_Datos
+    Left = 336
+    Top = 200
+  end
+  object cdsPresupuestos_Datos: TClientDataSet
+    Aggregates = <>
+    DataSetField = cdsPresupuestosqryPresupuestos_Datos
+    Params = <>
+    OnCalcFields = cdsPresupuestos_DatosCalcFields
+    Left = 336
+    Top = 152
+    object cdsPresupuestos_DatosID_PRESUPUESTOS_DATOS: TWideStringField
+      DisplayWidth = 38
+      FieldName = 'ID_PRESUPUESTOS_DATOS'
+      Required = True
+      Size = 38
+    end
+    object cdsPresupuestos_DatosID_PRESUPUESTOS: TWideStringField
+      DisplayWidth = 38
+      FieldName = 'ID_PRESUPUESTOS'
+      Required = True
+      Size = 38
+    end
+    object cdsPresupuestos_DatosID_PRODUCTOS: TWideStringField
+      DisplayWidth = 38
+      FieldName = 'ID_PRODUCTOS'
+      Size = 38
+    end
+    object cdsPresupuestos_DatosCANTIDAD: TFloatField
+      FieldName = 'CANTIDAD'
+    end
+    object cdsPresupuestos_DatosDESCRIPCION: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'DESCRIPCION'
+      Size = 255
+    end
+    object cdsPresupuestos_DatosPRECIO: TFloatField
+      FieldName = 'PRECIO'
+    end
+    object cdsPresupuestos_DatosDESCUENTO: TFloatField
+      FieldName = 'DESCUENTO'
+    end
+    object cdsPresupuestos_DatosIVA: TFloatField
+      FieldName = 'IVA'
+    end
+    object cdsPresupuestos_DatosPOSICION: TFloatField
+      FieldName = 'POSICION'
+    end
+    object cdsPresupuestos_DatosLOTE: TWideStringField
+      DisplayWidth = 50
+      FieldName = 'LOTE'
+      Size = 50
+    end
+    object cdsPresupuestos_DatosIMPORTE: TFloatField
+      FieldName = 'IMPORTE'
+    end
+    object cdsPresupuestos_DatosPRODUCTOS: TStringField
+      FieldKind = fkLookup
+      FieldName = 'PRODUCTOS'
+      LookupDataSet = cdsProductos
+      LookupKeyFields = 'ID_PRODUCTOS'
+      LookupResultField = 'NOMBRE'
+      KeyFields = 'ID_PRODUCTOS'
+      Lookup = True
+    end
+    object cdsPresupuestos_DatosSUBTOTAL: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'SUBTOTAL'
+      Calculated = True
+    end
   end
   object qryPresupuestos_Datos: TZQuery
     Connection = cntData
@@ -275,7 +348,7 @@ object dmData: TdmData
         ParamType = ptUnknown
       end>
     DataSource = dsPresupuestosDatos
-    Left = 264
+    Left = 336
     Top = 104
     ParamData = <
       item
@@ -283,5 +356,113 @@ object dmData: TdmData
         Name = 'id_presupuestos'
         ParamType = ptUnknown
       end>
+  end
+  object dsPresupuestosDatos: TDataSource
+    DataSet = qryPresupuestos
+    Left = 336
+    Top = 56
+  end
+  object dsProductos: TDataSource
+    DataSet = cdsProductos
+    Left = 152
+    Top = 200
+  end
+  object dspProductos: TDataSetProvider
+    DataSet = qryProductos
+    Left = 152
+    Top = 104
+  end
+  object cdsProductos: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspProductos'
+    Left = 152
+    Top = 152
+    object cdsProductosID_PRODUCTOS: TWideStringField
+      FieldName = 'ID_PRODUCTOS'
+      Required = True
+      Size = 38
+    end
+    object cdsProductosNOMBRE: TWideStringField
+      FieldName = 'NOMBRE'
+      Size = 255
+    end
+    object cdsProductosID_FAMILIA: TWideStringField
+      FieldName = 'ID_FAMILIA'
+      Size = 38
+    end
+    object cdsProductosIVA: TFloatField
+      FieldName = 'IVA'
+    end
+    object cdsProductosPRECIO_COMPRA: TFloatField
+      FieldName = 'PRECIO_COMPRA'
+    end
+    object cdsProductosDESCUENTO: TFloatField
+      FieldName = 'DESCUENTO'
+    end
+    object cdsProductosPRECIO1: TFloatField
+      FieldName = 'PRECIO1'
+    end
+    object cdsProductosPRECIO2: TFloatField
+      FieldName = 'PRECIO2'
+    end
+    object cdsProductosPRECIO3: TFloatField
+      FieldName = 'PRECIO3'
+    end
+    object cdsProductosSINSTOCK: TFloatField
+      DefaultExpression = '0'
+      FieldName = 'SINSTOCK'
+      Required = True
+    end
+    object cdsProductosSTOCK: TFloatField
+      FieldName = 'STOCK'
+    end
+    object cdsProductosSTOCK_MINIMO: TFloatField
+      FieldName = 'STOCK_MINIMO'
+    end
+    object cdsProductosIVA_INCLUIDO: TFloatField
+      DefaultExpression = '0'
+      FieldName = 'IVA_INCLUIDO'
+      Required = True
+    end
+    object cdsProductosKIT: TFloatField
+      DefaultExpression = '0'
+      FieldName = 'KIT'
+      Required = True
+    end
+    object cdsProductosCOMISION: TFloatField
+      FieldName = 'COMISION'
+    end
+    object cdsProductosOBSERVACIONES: TWideMemoField
+      FieldName = 'OBSERVACIONES'
+      BlobType = ftWideMemo
+    end
+    object cdsProductosPVP1: TFloatField
+      FieldName = 'PVP1'
+    end
+    object cdsProductosPVP2: TFloatField
+      FieldName = 'PVP2'
+    end
+    object cdsProductosPVP3: TFloatField
+      FieldName = 'PVP3'
+    end
+    object cdsProductosID_USUARIO: TWideStringField
+      FieldName = 'ID_USUARIO'
+      Size = 38
+    end
+  end
+  object qryProductos: TZQuery
+    Connection = cntData
+    SQL.Strings = (
+      'select * from productos')
+    Params = <>
+    Left = 152
+    Top = 56
+  end
+  object rptInforme: TVCLReport
+    AsyncExecution = False
+    Title = 'Sin t'#237'tulo'
+    Left = 88
+    Top = 8
   end
 end
