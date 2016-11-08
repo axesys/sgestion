@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Classes, ZAbstractConnection, ZConnection, Data.DB,
   ZAbstractRODataset, ZAbstractDataset, ZDataset, Datasnap.Provider,
-  Datasnap.DBClient, ZSqlUpdate, rpcompobase, rpvclreport;
+  Datasnap.DBClient, ZSqlUpdate;
 
 type
   TdmData = class(TDataModule)
@@ -107,7 +107,6 @@ type
     cdsPresupuestos_DatosIMPORTE: TFloatField;
     cdsPresupuestos_DatosPRODUCTOS: TStringField;
     cdsPresupuestos_DatosSUBTOTAL: TFloatField;
-    rptInforme: TVCLReport;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsNewRecord(DataSet: TDataSet);
     procedure cdsAfterPost(DataSet: TDataSet);
@@ -137,13 +136,13 @@ var
   dtsData: TDataSet;
 begin
   dtsData:= FindComponent('cds' + sName) as TDataSet;
-  with rptInforme do
-  begin
-    Filename:= 'C:\Reportes\' + sName + '.rep';
-    Report.Params.ParamByName('ID_' + sName).Value:=
-      dtsData.FieldByName('ID_' + sName).Value;
-    Execute;
-  end;
+//  with rptInforme do
+//  begin
+//    Filename:= 'C:\Reportes\' + sName + '.rep';
+//    Report.Params.ParamByName('ID_' + sName).Value:=
+//      dtsData.FieldByName('ID_' + sName).Value;
+//    Execute;
+//  end;
 end;
 
 function TdmData.GetId: string;

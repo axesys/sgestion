@@ -459,10 +459,4 @@ object dmData: TdmData
     Left = 152
     Top = 56
   end
-  object rptInforme: TVCLReport
-    AsyncExecution = False
-    Title = 'Sin t'#237'tulo'
-    Left = 88
-    Top = 8
-  end
 end
