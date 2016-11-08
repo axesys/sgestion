@@ -2,7 +2,7 @@ program SGestion;
 
 uses
   Vcl.Forms,
-  MidasLib,
+  //MidasLib,
   ufrmMain in 'ufrmMain.pas' {frmMain},
   udmData in 'udmData.pas' {dmData: TDataModule},
   ufrmBase in 'Compartidos\ufrmBase.pas' {frmBase},

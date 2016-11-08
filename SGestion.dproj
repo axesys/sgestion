@@ -112,11 +112,9 @@
         </DCCReference>
         <DCCReference Include="Catalogos\ufrmPresupuestos.pas">
             <Form>frmPresupuestos</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Catalogos\ufrmProductos.pas">
             <Form>frmProductos</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <None Include="README.md"/>
         <None Include="BD\SGestion_FireBird.sql"/>
