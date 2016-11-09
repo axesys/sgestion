@@ -1,18 +1,18 @@
 object dmData: TdmData
   OldCreateOrder = False
   OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
   Height = 386
   Width = 518
   object cntData: TZConnection
     ControlsCodePage = cCP_UTF16
     Catalog = ''
-    Connected = True
     HostName = 'localhost'
     Port = 0
     Database = 'C:\AppData\SGESTION.FDB'
     User = 'sysdba'
     Password = 'masterkey'
-    Protocol = 'firebird-2.5'
+    Protocol = 'firebird-3.0'
     Left = 24
     Top = 8
   end

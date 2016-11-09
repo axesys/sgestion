@@ -111,8 +111,10 @@ type
     procedure cdsNewRecord(DataSet: TDataSet);
     procedure cdsAfterPost(DataSet: TDataSet);
     procedure cdsPresupuestos_DatosCalcFields(DataSet: TDataSet);
+    procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }
+    Reportes: string;
     function GetId: string;
   public
     { Public declarations }
@@ -129,7 +131,7 @@ implementation
 {$R *.dfm}
 
 uses
-  Vcl.Dialogs;
+  Vcl.Dialogs, System.IniFiles;
 
 procedure TdmData.MostrarReporte(sName: String);
 var
@@ -138,7 +140,7 @@ begin
   dtsData:= FindComponent('cds' + sName) as TDataSet;
 //  with rptInforme do
 //  begin
-//    Filename:= 'C:\Reportes\' + sName + '.rep';
+//    Filename:= Reportes + sName + '.rep';
 //    Report.Params.ParamByName('ID_' + sName).Value:=
 //      dtsData.FieldByName('ID_' + sName).Value;
 //    Execute;
@@ -194,6 +196,17 @@ var
   DataSet: TDataSet;
   i: Integer;
 begin
+  with TMemIniFile.Create(ChangeFileExt(ParamStr(0),'.ini')) do
+  try
+    cntData.Protocol:= ReadString('Conection', 'Protocol', 'firebird-3.0');
+    cntData.HostName:= ReadString('Conection', 'HostName', '127.0.0.1');
+    cntData.Database:= ReadString('Conection', 'Database', 'C:\AppData\SGESTION.FDB');
+    cntData.User:= ReadString('Conection', 'User', 'sysdba');
+    cntData.Password:= ReadString('Conection', 'Password', 'masterkey');
+    Reportes:= ReadString('Reports', 'Path', 'C:\Reportes\')
+  finally
+    Free;
+  end;
   for i:= 0 to Pred(ComponentCount) do
   begin
     if Components[i] is TClientDataset then
@@ -204,6 +217,22 @@ begin
       DataSet.AfterDelete:= cdsAfterPost;
       DataSet.Open;
     end;
+  end;
+end;
+
+procedure TdmData.DataModuleDestroy(Sender: TObject);
+begin
+  with TMemIniFile.Create(ChangeFileExt(ParamStr(0),'.ini')) do
+  try
+    WriteString('Conection', 'Protocol', cntData.Protocol);
+    WriteString('Conection', 'HostName', cntData.HostName);
+    WriteString('Conection', 'Database', cntData.Database);
+    WriteString('Conection', 'User', cntData.User);
+    WriteString('Conection', 'Password', cntData.Password);
+    WriteString('Reports', 'Path', Reportes);
+    UpdateFile;
+  finally
+    Free;
   end;
 end;
 
