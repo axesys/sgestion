@@ -41,14 +41,7 @@ begin
 end;
 
 procedure TdmDatos.cdsAfterPost(DataSet: TDataSet);
-var
-  sName: String;
-  dtsDetail: TDataSet;
 begin
-  sName:= StringReplace(Name, 'dm', 'qry', []) + '_Datos';
-  dtsDetail:= FindComponent(sName) as TDataSet;
-  if Assigned(dtsDetail) then
-    dtsDetail.Open;
   if Assigned(DataSet.DataSetField) then
     DataSet.DataSetField.DataSet.Edit
   else
