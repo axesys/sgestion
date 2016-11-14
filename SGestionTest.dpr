@@ -4,14 +4,12 @@ uses
   Vcl.Forms,
   TestFrameWork,
   GUITestRunner,
-  uTestCasesFamilias in 'Test\uTestCasesFamilias.pas',
-  udmData in 'udmData.pas' {dmData: TDataModule},
   ufrmMain in 'ufrmMain.pas' {frmMain},
-  ufrmFamilias in 'Catalogos\ufrmFamilias.pas',
-  ufrmBase in 'Compartidos\ufrmBase.pas' {frmBase},
+  udmDatos in 'Compartidos\udmDatos.pas' {dmDatos: TDataModule},
+  udmDetalles in 'Compartidos\udmDetalles.pas' {dmDetalles: TDataModule},
   ufrmCatalogo in 'Compartidos\ufrmCatalogo.pas' {frmCatalogo},
-  uTestCasesBancos in 'Test\uTestCasesBancos.pas',
-  ufrmBancos in 'Catalogos\ufrmBancos.pas' {frmBancos};
+  ufrmOperacion in 'Compartidos\ufrmOperacion.pas' {frmOperacion},
+  udmBase in 'udmBase.pas' {dmBase: TDataModule};
 
 {$R *.res}
 

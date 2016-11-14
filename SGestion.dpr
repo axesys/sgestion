@@ -2,22 +2,19 @@ program SGestion;
 
 uses
   Vcl.Forms,
-  //MidasLib,
   ufrmMain in 'ufrmMain.pas' {frmMain},
-  udmData in 'udmData.pas' {dmData: TDataModule},
-  ufrmBase in 'Compartidos\ufrmBase.pas' {frmBase},
+  udmBase in 'udmBase.pas' {dmBase: TDataModule},
   ufrmCatalogo in 'Compartidos\ufrmCatalogo.pas' {frmCatalogo},
-  ufrmFamilias in 'Catalogos\ufrmFamilias.pas' {frmFamilias},
-  ufrmBancos in 'Catalogos\ufrmBancos.pas' {frmBancos},
-  ufrmPresupuestos in 'Catalogos\ufrmPresupuestos.pas' {frmPresupuestos},
-  ufrmProductos in 'Catalogos\ufrmProductos.pas' {frmProductos};
+  udmDatos in 'Compartidos\udmDatos.pas' {dmDatos: TDataModule},
+  udmDetalles in 'Compartidos\udmDetalles.pas' {dmDetalles: TDataModule},
+  ufrmOperacion in 'Compartidos\ufrmOperacion.pas' {frmOperacion};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TdmData, dmData);
+  Application.CreateForm(TdmBase, dmBase);
   Application.CreateForm(TfrmMain, frmMain);
   Application.Run;
 end.

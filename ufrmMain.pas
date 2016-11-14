@@ -6,28 +6,24 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Actions,
   Vcl.ActnList, Vcl.Menus, Vcl.ComCtrls,
-  Vcl.ToolWin, System.ImageList, Vcl.ImgList;
+  Vcl.ToolWin, System.ImageList, Vcl.ImgList, Vcl.Buttons;
 
 type
   TfrmMain = class(TForm)
     actMain: TActionList;
-    actFamilias: TAction;
     pcMain: TPageControl;
     tbMain: TToolBar;
     btnCatalogos: TToolButton;
     mnuCatalogos: TPopupMenu;
-    mnuFamilias: TMenuItem;
     imgMain: TImageList;
-    actBancos: TAction;
-    mnuBancos: TMenuItem;
-    actPresupuestos: TAction;
     btnOperaciones: TToolButton;
     mnuOperaciones: TPopupMenu;
-    mnuPresupuestos: TMenuItem;
-    actProductos: TAction;
-    mnuProductos: TMenuItem;
+    btnClose: TBitBtn;
+    actClose: TAction;
     procedure actExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure actCloseUpdate(Sender: TObject);
+    procedure actCloseExecute(Sender: TObject);
   private
     { Private declarations }
     function CrearVentana(actAccion: TAction):  TForm;
@@ -41,8 +37,6 @@ var
 implementation
 
 {$R *.dfm}
-
-uses udmData;
 
 function TfrmMain.CrearVentana(actAccion: TAction): TForm;
 var
@@ -85,9 +79,20 @@ begin
   end;
 end;
 
+procedure TfrmMain.actCloseExecute(Sender: TObject);
+begin
+  pcMain.ActivePage.Free;
+end;
+
+procedure TfrmMain.actCloseUpdate(Sender: TObject);
+begin
+  actClose.Visible:= Assigned(pcMain.ActivePage);
+end;
+
 procedure TfrmMain.actExecute(Sender: TObject);
 begin
   CrearVentana(Sender as TAction);
+  actClose.Update;
 end;
 
 end.

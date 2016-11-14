@@ -1,10 +1,18 @@
-inherited frmCatalogo: TfrmCatalogo
+object frmCatalogo: TfrmCatalogo
+  Left = 0
+  Top = 0
   Caption = 'frmCatalogo'
   ClientHeight = 430
   ClientWidth = 529
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
   OnCreate = FormCreate
-  ExplicitWidth = 545
-  ExplicitHeight = 468
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object tbCatalogo: TToolBar
@@ -75,6 +83,10 @@ inherited frmCatalogo: TfrmCatalogo
     object tsEditor: TTabSheet
       Caption = 'Datos Generales'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
     end
   end
   object actCatalogo: TActionList
@@ -124,7 +136,7 @@ inherited frmCatalogo: TfrmCatalogo
     Left = 232
     Top = 144
     Bitmap = {
-      494C010105000800FC0020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101050008000C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000060606074343
@@ -1195,7 +1207,7 @@ inherited frmCatalogo: TfrmCatalogo
     Left = 232
     Top = 192
     Bitmap = {
-      494C010105000800180120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800280120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000001010101020202037C7C7C889090

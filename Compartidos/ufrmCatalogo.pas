@@ -3,13 +3,15 @@ unit ufrmCatalogo;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, ufrmBase, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  udmDatos, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Data.DB, Vcl.Grids, Vcl.DBGrids,
   Vcl.DBActns, System.Actions, Vcl.ActnList, Vcl.Menus, Vcl.ComCtrls,
   Vcl.ToolWin, System.ImageList, Vcl.ImgList;
 
 type
-  TfrmCatalogo = class(TfrmBase)
+  TDataModuleClass = class of TDataModule;
+  TfrmCatalogo = class(TForm)
     actCatalogo: TActionList;
     actNuevo: TDataSetInsert;
     actEliminar: TDataSetDelete;
@@ -32,10 +34,14 @@ type
     procedure grdCatalogoDblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure actInformeExecute(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
+    dmData: TdmDatos;
   public
     { Public declarations }
+  protected
+    function CrearDatos(sDatos: String): TDataModule;
   end;
 
 var
@@ -45,27 +51,46 @@ implementation
 
 {$R *.dfm}
 
-uses udmData;
+uses udmBase;
+
+function TfrmCatalogo.CrearDatos(sDatos: String): TDataModule;
+var
+  DataClass: TDataModuleClass;
+begin
+  Result:= nil;
+  DataClass:= TDataModuleClass(GetClass('T' + (sDatos)));
+  if Assigned(DataClass) then
+  begin
+    Result:= DataClass.Create(Application);
+  end;
+end;
 
 procedure TfrmCatalogo.actInformeExecute(Sender: TObject);
 begin
-  dmData.MostrarReporte(StringReplace(Name, 'frm', '', []));
+  dmBase.MostrarReporte(StringReplace(Name, 'frm', '', []));
 end;
 
 procedure TfrmCatalogo.FormCreate(Sender: TObject);
 var
-  sData: string;
+  sDatos: string;
 begin
+  inherited;
   pgcCatalogo.ActivePage:= tsListado;
-  sData:= StringReplace(Name, 'frm', 'ds', []);
-  grdCatalogo.DataSource:= dmData.FindComponent(sData) as TDataSource;
-  if Assigned(grdCatalogo.DataSource) then
+  sDatos:= StringReplace(Name, 'frm', 'dm', []);
+  dmData:= CrearDatos(sDatos) as TdmDatos;
+  if Assigned(dmData) then
   begin
-    actGuardar.DataSource:= grdCatalogo.DataSource;
-    actNuevo.DataSource:= grdCatalogo.DataSource;
-    actEliminar.DataSource:= grdCatalogo.DataSource;
-    actCancelar.DataSource:= grdCatalogo.DataSource;
+    grdCatalogo.DataSource:= dmData.dsDatos;
+    actGuardar.DataSource:= dmData.dsDatos;
+    actNuevo.DataSource:= dmData.dsDatos;
+    actEliminar.DataSource:= dmData.dsDatos;
+    actCancelar.DataSource:= dmData.dsDatos;
   end;
+end;
+
+procedure TfrmCatalogo.FormDestroy(Sender: TObject);
+begin
+  FreeAndNil(dmData);
 end;
 
 procedure TfrmCatalogo.grdCatalogoDblClick(Sender: TObject);

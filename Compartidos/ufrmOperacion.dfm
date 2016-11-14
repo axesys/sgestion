@@ -1,72 +1,52 @@
-inherited frmBancos: TfrmBancos
-  Caption = 'Bancos'
+inherited frmOperacion: TfrmOperacion
+  Caption = 'frmOperacion'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCatalogo: TPageControl
-    inherited tsListado: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 521
-      ExplicitHeight = 353
-      inherited grdCatalogo: TDBGrid
-        DataSource = dmData.dsBancos
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'NOMBRE'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'BIC'
-            Visible = True
-          end>
-      end
-    end
     inherited tsEditor: TTabSheet
-      ExplicitLeft = 4
+      ExplicitLeft = 8
       ExplicitTop = 24
       ExplicitWidth = 521
       ExplicitHeight = 353
-      object lblNombre: TLabel
-        Left = 3
-        Top = 3
-        Width = 37
-        Height = 13
-        Caption = 'Nombre'
-      end
-      object lblBic: TLabel
-        Left = 3
-        Top = 30
-        Width = 13
-        Height = 13
-        Caption = 'Bic'
-      end
-      object edtNombre: TDBEdit
-        Left = 46
-        Top = 0
-        Width = 472
-        Height = 21
-        Anchors = [akLeft, akTop, akRight]
-        DataField = 'NOMBRE'
-        DataSource = dmData.dsBancos
+      object pnlDetalles: TPanel
+        Left = 0
+        Top = 152
+        Width = 521
+        Height = 201
+        Align = alBottom
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        Caption = 'pnlDetalles'
         TabOrder = 0
-      end
-      object edtBic: TDBEdit
-        Left = 46
-        Top = 27
-        Width = 472
-        Height = 21
-        Anchors = [akLeft, akTop, akRight]
-        DataField = 'BIC'
-        DataSource = dmData.dsBancos
-        TabOrder = 1
+        DesignSize = (
+          521
+          201)
+        object grdDetalles: TDBGrid
+          Left = 0
+          Top = 31
+          Width = 515
+          Height = 162
+          Anchors = [akLeft, akTop, akRight, akBottom]
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+        end
+        object navDatos: TDBNavigator
+          Left = 0
+          Top = 0
+          Width = 225
+          Height = 25
+          VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+          TabOrder = 1
+        end
       end
     end
   end
   inherited imgImagenes: TImageList
     Bitmap = {
-      494C010105000800F80020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800100120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000060606074343
@@ -1131,7 +1111,7 @@ inherited frmBancos: TfrmBancos
   end
   inherited imgImagenesGris: TImageList
     Bitmap = {
-      494C010105000800140120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101050008002C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000001010101020202037C7C7C889090
