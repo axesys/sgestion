@@ -2,9 +2,11 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'SGestion'
-  ClientHeight = 406
-  ClientWidth = 509
+  ClientHeight = 561
+  ClientWidth = 784
   Color = clBtnFace
+  Constraints.MinHeight = 600
+  Constraints.MinWidth = 800
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -12,30 +14,34 @@ object frmMain: TfrmMain
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
-    509
-    406)
+    784
+    561)
   PixelsPerInch = 96
   TextHeight = 13
   object pcMain: TPageControl
     Left = 0
     Top = 49
-    Width = 509
-    Height = 357
+    Width = 784
+    Height = 512
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 509
+    ExplicitHeight = 357
   end
   object tbMain: TToolBar
     Left = 0
     Top = 0
-    Width = 509
+    Width = 784
     Height = 49
     ButtonHeight = 47
     ButtonWidth = 54
     Images = imgMain
     TabOrder = 1
+    ExplicitWidth = 509
     object btnCatalogos: TToolButton
       Left = 0
       Top = 0
@@ -51,7 +57,7 @@ object frmMain: TfrmMain
     end
   end
   object btnClose: TBitBtn
-    Left = 481
+    Left = 756
     Top = 49
     Width = 20
     Height = 20
@@ -59,6 +65,7 @@ object frmMain: TfrmMain
     Anchors = [akTop, akRight]
     Caption = 'X'
     TabOrder = 2
+    ExplicitLeft = 481
   end
   object actMain: TActionList
     Images = imgMain
@@ -83,7 +90,7 @@ object frmMain: TfrmMain
     Left = 240
     Top = 152
     Bitmap = {
-      494C010101000800800020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010101000800840020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

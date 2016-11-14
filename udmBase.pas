@@ -47,8 +47,6 @@ begin
   end;
 end;
 
-
-
 procedure TdmBase.DataModuleCreate(Sender: TObject);
 begin
   with TMemIniFile.Create(ChangeFileExt(ParamStr(0),'.ini')) do

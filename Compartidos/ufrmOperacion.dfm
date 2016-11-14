@@ -3,28 +3,34 @@ inherited frmOperacion: TfrmOperacion
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCatalogo: TPageControl
+    inherited tsListado: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 521
+      ExplicitHeight = 353
+    end
     inherited tsEditor: TTabSheet
-      ExplicitLeft = 8
+      ExplicitLeft = 4
       ExplicitTop = 24
       ExplicitWidth = 521
       ExplicitHeight = 353
       object pnlDetalles: TPanel
         Left = 0
-        Top = 152
+        Top = 40
         Width = 521
-        Height = 201
+        Height = 313
         Align = alBottom
         Anchors = [akLeft, akTop, akRight, akBottom]
         Caption = 'pnlDetalles'
         TabOrder = 0
         DesignSize = (
           521
-          201)
+          313)
         object grdDetalles: TDBGrid
           Left = 0
           Top = 31
-          Width = 515
-          Height = 162
+          Width = 512
+          Height = 274
           Anchors = [akLeft, akTop, akRight, akBottom]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
@@ -46,7 +52,7 @@ inherited frmOperacion: TfrmOperacion
   end
   inherited imgImagenes: TImageList
     Bitmap = {
-      494C010105000800100120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800140120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000060606074343
@@ -1111,7 +1117,7 @@ inherited frmOperacion: TfrmOperacion
   end
   inherited imgImagenesGris: TImageList
     Bitmap = {
-      494C0101050008002C0120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105000800300120002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000001010101020202037C7C7C889090
