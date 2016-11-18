@@ -7,12 +7,12 @@ object dmBase: TdmBase
   object cntData: TZConnection
     ControlsCodePage = cCP_UTF16
     Catalog = ''
-    HostName = 'localhost'
+    HostName = ''
     Port = 0
-    Database = 'C:\AppData\SGESTION.FDB'
-    User = 'sysdba'
-    Password = 'masterkey'
-    Protocol = 'firebird-3.0'
+    Database = ''
+    User = ''
+    Password = ''
+    Protocol = ''
     Left = 24
     Top = 8
   end
