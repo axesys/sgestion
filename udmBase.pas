@@ -4,8 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Classes, ZAbstractConnection, ZConnection, Data.DB,
-  ZAbstractRODataset, ZAbstractDataset, ZDataset, Datasnap.Provider,
-  Datasnap.DBClient, ZSqlUpdate, rpcompobase, rpvclreport;
+
+  rpcompobase, rpvclreport;
 
 type
   TdmBase = class(TDataModule)

@@ -3,8 +3,9 @@ unit udmDetalles;
 interface
 
 uses
-  System.SysUtils, System.Classes, udmDatos, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset, Data.DB, Datasnap.DBClient, Datasnap.Provider;
+  System.SysUtils, System.Classes, udmDatos,
+  ZDataset, Data.DB, Datasnap.DBClient, ZAbstractRODataset, ZAbstractDataset,
+  Datasnap.Provider;
 
 type
   TdmDetalles = class(TdmDatos)
